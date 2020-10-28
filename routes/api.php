@@ -36,5 +36,10 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('job-oportunities', 'App\Http\Controllers\JobOportunityController@store');
     Route::put('job-oportunities/{job_oportunity}', 'App\Http\Controllers\JobOportunityController@update');
     Route::delete('job-oportunities/{job_oportunity}', 'App\Http\Controllers\JobOportunityController@delete');
+
+    Route::get('users', 'App\Http\Controllers\UserController@index');
+    Route::get('users/{user}', 'App\Http\Controllers\UserController@show');
+    Route::put('users/{user}', 'App\Http\Controllers\UserController@update');
+    Route::delete('users/{user}', 'App\Http\Controllers\UserController@delete');
 });
 Route::get('job-oportunities', 'App\Http\Controllers\JobOportunityController@index');
