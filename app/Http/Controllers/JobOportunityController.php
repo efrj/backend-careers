@@ -7,34 +7,33 @@ use App\Models\JobOportunity;
 
 class JobOportunityController extends Controller
 {
-    public function index()
-    {
+    public function index() {
         return JobOportunity::all();
     }
  
-    public function show($id)
+    public function show(JobOportunity $job_oportunity)
     {
-        return JobOportunity::find($id);
+        return $job_oportunity;
     }
 
     public function store(Request $request)
     {
-        return JobOportunity::create($request->all());
+        $job_oportunity = JobOportunity::create($request->all());
+
+        return response()->json($job_oportunity, 201);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, JobOportunity $job_oportunity)
     {
-        $job_oportunity = JobOportunity::findOrFail($id);
         $job_oportunity->update($request->all());
 
-        return $JobOportunity;
+        return response()->json($job_oportunity, 200);
     }
 
-    public function delete(Request $request, $id)
+    public function delete(JobOportunity $job_oportunity)
     {
-        $job_oportunity = JobOportunity::findOrFail($id);
         $job_oportunity->delete();
 
-        return 204;
+        return response()->json(null, 204);
     }
 }

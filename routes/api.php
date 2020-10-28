@@ -24,8 +24,17 @@ Route::group([
 
 ], function ($router) {
     Route::post('login', 'App\Http\Controllers\AuthController@login');
+    Route::get('login', [ 'as' => 'login', 'uses' => 'App\Http\Controllers\AuthController@login']);
     Route::post('register', 'App\Http\Controllers\AuthController@register');
     Route::post('logout', 'App\Http\Controllers\AuthController@logout');
     Route::post('refresh', 'App\Http\Controllers\AuthController@refresh');
     Route::get('user-profile', 'App\Http\Controllers\AuthController@userProfile');
 });
+
+Route::group(['middleware' => 'auth:api'], function() {
+    Route::get('job-oportunities/{job_oportunity}', 'App\Http\Controllers\JobOportunityController@show');
+    Route::post('job-oportunities', 'App\Http\Controllers\JobOportunityController@store');
+    Route::put('job-oportunities/{job_oportunity}', 'App\Http\Controllers\JobOportunityController@update');
+    Route::delete('job-oportunities/{job_oportunity}', 'App\Http\Controllers\JobOportunityController@delete');
+});
+Route::get('job-oportunities', 'App\Http\Controllers\JobOportunityController@index');
