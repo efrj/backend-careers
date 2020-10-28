@@ -18,6 +18,12 @@ class JobOportunityController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|max:256',
+            'description' => 'required|max:10000',
+            'status' => 'required'
+        ]);
+
         $job_oportunity = JobOportunity::create($request->all());
 
         return response()->json($job_oportunity, 201);
@@ -25,6 +31,12 @@ class JobOportunityController extends Controller
 
     public function update(Request $request, JobOportunity $job_oportunity)
     {
+        $request->validate([
+            'title' => 'required|max:256',
+            'description' => 'required|max:10000',
+            'status' => 'required'
+        ]);
+        
         $job_oportunity->update($request->all());
 
         return response()->json($job_oportunity, 200);
