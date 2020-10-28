@@ -1,52 +1,35 @@
-## A empresa
-A Talentify.io nasceu da fusão de 3 empresas distintas em 3 áreas diferentes: Digital Media & Advertising, Mobile Technology e HR Consulting. Nossa plataforma de SaaS ajuda empresas a superar seus maiores desafios na  busca e contratação de talentos em grande escala.
+Development of the API for jobs in Laravel.
 
-## A vaga
-Estamos constante adicionando novas features e aperfeiçoando as já existentes. Como desenvolvedor sênior, voce será responsável por criar código limpo, testável, e de alta qualidade, além de auxiliar o restante da equipe a migrar código existente para a nova arquitetura orientada a domínio.Somos adeptos de desenvolvimento ágil, integração contínua, code review e testes automáticos. Com isso, nossa equipe busca constantemente desenvolver e aprimorar o produto para estarmos sempre a frente do mercado.
 
-## Beneficios
-- Home office (você pode trabalhar em casa ou em nosso escritório, em Alphaville/SP)
-- Horario flexivel
-- Assistencia medica e odontologica (apos 3 meses)
-- Vale refeicao e transporte
+# API Job Oportunities
 
-## Requisitos
-- PHP 7
-- Desenvolvimento de testes
-- Desenvolvimento Agil
-- Web Services (RESTful ou SOAP ou JSON-RPC, etc)
-- Algum dos frameworks PHP (Phalcon, Zend, Symfony, Laravel)
-- Familiaridade com as PHP Standards Recommendations (PSRs)
-- GIT
-- Banco de dados relacional (MySQL, PostgreSQL, etc)
+## Requirements for development and production environments
+* PHP - Minimum version 7.3.
+* MySQL or Maria DB - from version 5.6 or SQLite
+* Apache or Nginx server or PHP's built in server
+* All Artisan commands must be executed in the application's root directory
 
-## Desejável
-- Arquitetura hexagonal
-- DDD
-- Microserviços
-- Filas de mensagens (RabbitMQ, Apache Kafka, Amazon SQS, etc)
-- Elasticsearch
-- Linux
-- Amazon Web Services (AWS)
-- CI/CD
-- Inglês (leitura, escrita e conversação)
+## Procedures for running the API
+* Create a virtual host in Apache, NGINX or execute the project with the built in server of PHP.
 
-## Talk is cheap. Show me the code!
-Você deverá construir um pequeno sistema para publicação de vagas de emprego. Ele irá possuir os seguintes recursos:
-* Interface, de acesso público, com a listagem das vagas abertas
-* Interface para login
-* Interface administrativa, de acesso privado, com os seguintes recursos:
-  * Cadastro de vaga contendo os campos: title (string, 256 characteres, obrigatório) , description (string, 10000 caracteres, obrigatório), status (enum, obrigatório), workplace (endereço, opcional), salary (dólar americano, opicional).
- 
-#### Observações
-- Você pode, ou não, utilizar qualquer framework ou biblioteca PHP que desejar, desde que a lógica de negócio descrita acima seja feita por você, em puro PHP.
-- As interfaces podem ou não serem gráficas (GUI), isto é, podem ser qualquer tipo de canal que possibilite a comunicação com a aplicação, tais como: RESTful, GraphQL, SOAP, JSON-RPC, (X)HTML com ou sem javascript, etc.
-- Testes automatizados (de unidade e/ou funcionais e/ou aceitação) deverão ser escritos.
-- Um README.md deverá ser adicionado e conter, no mínimo, as instruções de setup e utilização da aplicação.
+* Run the command ** composer install ** to download the project's dependencies
 
-#### Envio
-Para enviar o seu código, submeta uma pull request para este repositório.
+* Create the .env file from the .env.example sample file and enter the database configuration parameters
 
-#### Disclaimer
-O código fonte que você produzir será utilizado somente para avaliar sua aptidão para a vaga. Não será feito nenhum uso comercial do código fonte, tampouco haverá a exigência de direitos de atribuição.
+* Generate a new key for the application (APP_KEY) with the command ** php artisan key: generate **
 
+### Creation of database tables
+##### Use the command
+** php artisan migrate **
+
+### Populating the database
+##### Use the commands in sequence to run the Seeds
+** php artisan db: seed
+
+### Running the tests
+** composer test
+
+### Testing the Endpoints
+To test the endpoints import the file Talentify backend-careers API.postman_collection.json which is at the root of the project.
+
+Do the informant email and password authentication. Copy the token and enter the tokent in the other enpoints using the Authentication parameter with the value Bearer {token} to access the content of the endpoint.

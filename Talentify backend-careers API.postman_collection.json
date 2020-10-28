@@ -1,0 +1,490 @@
+{
+	"info": {
+		"_postman_id": "fe3f3802-1ef1-47a5-a0aa-7aad3ed3f5c4",
+		"name": "Talentify backend-careers API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Auth Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/auth/login",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwMzg5NjMxOSwiZXhwIjoxNjAzODk5OTE5LCJuYmYiOjE2MDM4OTYzMTksImp0aSI6IjFSQno1cmp1RzRZYm1ZT0MiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.lCpG2qD5G9McJYbPexhD7LBquq0qp6oTFYL89bkvLag",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/auth/logout",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Job Oportunities",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwMzg1MzY3NywiZXhwIjoxNjAzODU3Mjc3LCJuYmYiOjE2MDM4NTM2NzcsImp0aSI6IkZrUVBsTUE3dlE5SExKY1EiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.EeOpJQ8VA_UkKC8PwdwjoOhhtFOoTyF43es_fdjAJKo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Title One test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Description One test.",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "active",
+									"type": "text"
+								},
+								{
+									"key": "workplace",
+									"value": "Address test, 1258",
+									"type": "text"
+								},
+								{
+									"key": "salary",
+									"value": "3988.99",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/job-oportunities",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"job-oportunities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/job-oportunities",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"job-oportunities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwMzg5MzcxNCwiZXhwIjoxNjAzODk3MzE0LCJuYmYiOjE2MDM4OTM3MTQsImp0aSI6IlZDUUdzOWFaOG9oSWY0c1AiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.QHrtma0zOUIQ16V_nf8dC-zUaXahGtNP_DHpt-xzg3o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:8000/api/job-oportunities/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"job-oportunities",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwMzg5MzcxNCwiZXhwIjoxNjAzODk3MzE0LCJuYmYiOjE2MDM4OTM3MTQsImp0aSI6IlZDUUdzOWFaOG9oSWY0c1AiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.QHrtma0zOUIQ16V_nf8dC-zUaXahGtNP_DHpt-xzg3o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Title test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Description test.",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "active",
+									"type": "text"
+								},
+								{
+									"key": "workplace",
+									"value": "Address test, 445",
+									"type": "text"
+								},
+								{
+									"key": "salary",
+									"value": "3500",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/job-oportunities/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"job-oportunities",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwMzg1MzY3NywiZXhwIjoxNjAzODU3Mjc3LCJuYmYiOjE2MDM4NTM2NzcsImp0aSI6IkZrUVBsTUE3dlE5SExKY1EiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.EeOpJQ8VA_UkKC8PwdwjoOhhtFOoTyF43es_fdjAJKo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:8000/api/job-oportunities/97",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"job-oportunities",
+								"97"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwMzg5MzcxNCwiZXhwIjoxNjAzODk3MzE0LCJuYmYiOjE2MDM4OTM3MTQsImp0aSI6IlZDUUdzOWFaOG9oSWY0c1AiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.QHrtma0zOUIQ16V_nf8dC-zUaXahGtNP_DHpt-xzg3o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:8000/api/users",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwMzg1MzY3NywiZXhwIjoxNjAzODU3Mjc3LCJuYmYiOjE2MDM4NTM2NzcsImp0aSI6IkZrUVBsTUE3dlE5SExKY1EiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.EeOpJQ8VA_UkKC8PwdwjoOhhtFOoTyF43es_fdjAJKo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Nino",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "nino@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/auth/register",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwMzg5MzcxNCwiZXhwIjoxNjAzODk3MzE0LCJuYmYiOjE2MDM4OTM3MTQsImp0aSI6IlZDUUdzOWFaOG9oSWY0c1AiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.QHrtma0zOUIQ16V_nf8dC-zUaXahGtNP_DHpt-xzg3o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Armando Silva",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "a.silva@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/users/2",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwMzg5MzcxNCwiZXhwIjoxNjAzODk3MzE0LCJuYmYiOjE2MDM4OTM3MTQsImp0aSI6IlZDUUdzOWFaOG9oSWY0c1AiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.QHrtma0zOUIQ16V_nf8dC-zUaXahGtNP_DHpt-xzg3o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:8000/api/users/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwMzg5MzcxNCwiZXhwIjoxNjAzODk3MzE0LCJuYmYiOjE2MDM4OTM3MTQsImp0aSI6IlZDUUdzOWFaOG9oSWY0c1AiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.QHrtma0zOUIQ16V_nf8dC-zUaXahGtNP_DHpt-xzg3o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:8000/api/users/3",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
